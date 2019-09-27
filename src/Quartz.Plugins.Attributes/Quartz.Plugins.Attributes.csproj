@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0; netstandard2.1</TargetFrameworks>
+        <TieredCompilation>true</TieredCompilation>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageId>Quartz.Plugins.Attributes</PackageId>
+        <Version>1.0.0</Version>
+        <Description>A convenient way to create Quartz.NET jobs using attributes.</Description>
+        <Authors>Fu Diwei</Authors>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="quartz.config">
+            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.0.0" />
+        <PackageReference Include="Quartz" Version="3.0.7" />
+        <PackageReference Include="Quartz.DependencyInjection.Microsoft" Version="1.0.0" />
+        <PackageReference Include="Quartz.Jobs" Version="3.0.7" />
+        <PackageReference Include="Quartz.Plugins" Version="3.0.7" />
+        <PackageReference Include="Quartz.Plugins.TimeZoneConverter" Version="3.0.7" />
+    </ItemGroup>
+
+</Project>
