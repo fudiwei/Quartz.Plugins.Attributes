@@ -20,23 +20,26 @@
         </Content>
     </ItemGroup>
 
-    <PropertyGroup Condition="'$(TargetFramework)' != 'netcoreapp3.0'">
-        <DefineConstants>$(DefineConstants);NETCORE_2_X</DefineConstants>
-    </PropertyGroup>
-
     <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
         <DefineConstants>$(DefineConstants);NETCORE_3_X</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(TargetFramework)' != 'netcoreapp3.0'">
+        <DefineConstants>$(DefineConstants);NETCORE_2_X</DefineConstants>
     </PropertyGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
 
-    <ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)' != 'netcoreapp3.0'">
         <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
         <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Quartz" Version="3.0.7" />
         <PackageReference Include="Quartz.DependencyInjection.Microsoft" Version="1.0.0" />
         <PackageReference Include="Quartz.Jobs" Version="3.0.7" />
