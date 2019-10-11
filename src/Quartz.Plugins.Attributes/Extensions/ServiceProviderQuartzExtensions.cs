@@ -79,7 +79,11 @@ namespace System
                 }
             }
 
+#if NETCORE_3_X
+            Microsoft.Extensions.Hosting.IHostApplicationLifetime lifetime = provider.GetService<Microsoft.Extensions.Hosting.IHostApplicationLifetime>();
+#else
             IApplicationLifetime lifetime = provider.GetService<IApplicationLifetime>();
+#endif
             if (lifetime != null)
             {
                 // Follow the LifeCycle of ASP.NET Core

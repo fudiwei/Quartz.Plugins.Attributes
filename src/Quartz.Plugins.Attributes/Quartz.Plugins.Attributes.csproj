@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0; netstandard2.1</TargetFrameworks>
+        <TargetFrameworks>netstandard2.0; netstandard2.1; netcoreapp2.1; netcoreapp2.2; netcoreapp2.2; netcoreapp3.0</TargetFrameworks>
         <TieredCompilation>true</TieredCompilation>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
@@ -18,6 +18,18 @@
             <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
+    </ItemGroup>
+
+    <PropertyGroup Condition="'$(TargetFramework)' != 'netcoreapp3.0'">
+        <DefineConstants>$(DefineConstants);NETCORE_2_X</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
+        <DefineConstants>$(DefineConstants);NETCORE_3_X</DefineConstants>
+    </PropertyGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
 
     <ItemGroup>
