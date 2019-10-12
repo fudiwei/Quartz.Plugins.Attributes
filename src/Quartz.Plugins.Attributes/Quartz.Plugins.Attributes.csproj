@@ -20,23 +20,23 @@
         </Content>
     </ItemGroup>
 
-    <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
-        <DefineConstants>$(DefineConstants);NETCORE_3_X</DefineConstants>
-    </PropertyGroup>
-
     <PropertyGroup Condition="'$(TargetFramework)' != 'netcoreapp3.0'">
         <DefineConstants>$(DefineConstants);NETCORE_2_X</DefineConstants>
     </PropertyGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
-        <FrameworkReference Include="Microsoft.AspNetCore.App" />
-    </ItemGroup>
+    <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
+        <DefineConstants>$(DefineConstants);NETCORE_3_X</DefineConstants>
+    </PropertyGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' != 'netcoreapp3.0'">
-        <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
 
     <ItemGroup>
