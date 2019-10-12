@@ -17,6 +17,8 @@
         <Content Include="quartz.config">
             <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
         </Content>
     </ItemGroup>
 
