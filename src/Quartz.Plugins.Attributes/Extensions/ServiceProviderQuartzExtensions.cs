@@ -75,7 +75,7 @@ namespace System
                         .Build();
 
                     jobs.Add(new QuartaJobMeta(jobDetail, trigger));
-                    logger?.LogInformation("Ready to schedule job \"{0}\".");
+                    logger?.LogInformation("Ready to schedule job \"{0}\".", jobName);
                 }
             }
 
