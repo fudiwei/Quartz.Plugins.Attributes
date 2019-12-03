@@ -75,7 +75,6 @@ namespace System
                         .Build();
 
                     jobs.Add(new QuartaJobMeta(jobDetail, trigger));
-                    logger?.LogInformation("Ready to schedule job \"{0}\".", jobName);
                 }
             }
 
@@ -89,7 +88,11 @@ namespace System
                 // Follow the LifeCycle of ASP.NET Core
                 lifetime.ApplicationStarted.Register(async () =>
                 {
-                    await Task.WhenAll(jobs.Select(e => scheduler.ScheduleJob(e.JobDetail, e.Trigger)));
+                    await Task.WhenAll(jobs.Select(e =>
+                    {
+                        logger?.LogInformation("Ready to schedule job \"{0}\".", e.JobDetail.Key.Name);
+                        return scheduler.ScheduleJob(e.JobDetail, e.Trigger);
+                    }));
                     await scheduler.Start();
                 });
                 lifetime.ApplicationStopping.Register(async () =>
@@ -103,7 +106,11 @@ namespace System
             else
             {
                 // Here we go!
-                Task.WhenAll(jobs.Select(e => scheduler.ScheduleJob(e.JobDetail, e.Trigger))).Wait();
+                Task.WhenAll(jobs.Select(e =>
+                {
+                    logger?.LogInformation("Ready to schedule job \"{0}\".", e.JobDetail.Key.Name);
+                    return scheduler.ScheduleJob(e.JobDetail, e.Trigger);
+                })).Wait();
                 scheduler.Start().Wait();
             }
 
