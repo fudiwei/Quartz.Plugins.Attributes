@@ -1,9 +1,10 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
+using Quartz.DependencyInjection.Microsoft.Extensions;
 
-namespace Microsoft.Extensions.DependencyInjection
+namespace Quartz
 {
-    using Quartz.Plugins.Attributes;
+    using Plugins.Attributes;
 
     /// <summary>
     /// 
@@ -29,7 +30,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 }
             }
 
-            return Quartz.DependencyInjection.Microsoft.Extensions.ServiceCollectionExtensions.AddQuartz(services);
+            return ServiceCollectionExtensions.AddQuartz(services);
         }
     }
 }

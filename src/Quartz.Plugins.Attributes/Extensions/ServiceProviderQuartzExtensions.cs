@@ -8,9 +8,9 @@ using Microsoft.Extensions.Logging;
 using Quartz;
 using Quartz.Logging;
 
-namespace System
+namespace Quartz
 {
-    using Quartz.Plugins.Attributes;
+    using Plugins.Attributes;
 
     /// <summary>
     /// 

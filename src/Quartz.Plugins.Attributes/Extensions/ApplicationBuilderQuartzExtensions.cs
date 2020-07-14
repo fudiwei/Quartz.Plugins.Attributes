@@ -1,10 +1,8 @@
 ﻿using System;
 using Microsoft.AspNetCore.Builder;
 
-namespace Microsoft.AspNetCore.Builder
+namespace Quartz
 {
-    using Quartz.Plugins.Attributes;
-
     /// <summary>
     /// 
     /// </summary>
