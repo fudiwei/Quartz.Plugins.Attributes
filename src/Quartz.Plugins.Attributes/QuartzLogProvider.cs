@@ -57,7 +57,7 @@ namespace Quartz.Plugins.Attributes
             };
         }
 
-        public IDisposable OpenMappedContext(string key, string value)
+        public IDisposable OpenMappedContext(string key, object value, bool destructure = false)
         {
             throw new NotImplementedException();
         }
