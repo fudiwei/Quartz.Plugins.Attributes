@@ -49,7 +49,7 @@
 
     <ItemGroup>
         <PackageReference Include="Quartz" Version="3.1.0" />
-        <PackageReference Include="Quartz.DependencyInjection.Microsoft" Version="1.0.0" />
+        <PackageReference Include="Quartz.Extensions.DependencyInjection" Version="3.1.0" />
         <PackageReference Include="Quartz.Jobs" Version="3.1.0" />
         <PackageReference Include="Quartz.Plugins" Version="3.1.0" />
         <PackageReference Include="Quartz.Plugins.TimeZoneConverter" Version="3.1.0" />

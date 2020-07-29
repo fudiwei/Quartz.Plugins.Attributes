@@ -7,7 +7,7 @@ A convenient way to create Quartz.NET jobs using attributes.
 ## Features
 
 * Supports scheduling jobs using attributes instead of configuration files.
-* Supports dependency injection in *IJob* class (depends on the library [Quartz.DependencyInjection.Microsoft](https://github.com/nizmow/Quartz.DependencyInjection.Microsoft)).
+* Supports dependency injection in *IJob* class.
 * Supports logger provider created by *ILoggerFactory*, instead of the default.
 * Follows the lifecycle of ASP.NET Core.
 
@@ -49,7 +49,7 @@ using Quartz;
 public void ConfigureServices(IServiceCollection services)
 {
     // do something
-    services.AddQuartz();
+    services.AddQuartzJobs();
 }
 ```
 
@@ -62,6 +62,6 @@ using Quartz;
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
     // do something
-    app.UseQuartz();
+    app.UseQuartzJobs();
 }
 ```

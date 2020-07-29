@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -15,9 +16,9 @@ namespace Quartz
     /// <summary>
     /// 
     /// </summary>
-    public static class ServiceProviderQuartzExtensions
+    public static class ApplicationBuilderQuartzJobsExtensions
     {
-        class QuartaJobMeta
+        private class QuartaJobMeta
         {
             public IJobDetail JobDetail { get; }
 
@@ -31,12 +32,14 @@ namespace Quartz
         }
 
         /// <summary>
-        /// Start to schedule Quartz.NET Jobs.
+        /// Start to schedule all Quartz.NET jobs.
         /// </summary>
-        /// <param name="provider"></param>
+        /// <param name="app"></param>
         /// <returns></returns>
-        public static IServiceProvider UseQuartz(this IServiceProvider provider)
+        public static IApplicationBuilder UseQuartzJobs(this IApplicationBuilder app)
         {
+            IServiceProvider provider = app.ApplicationServices;
+
             // SetUp Logger
             ILoggerFactory loggerFactory = provider.GetService<ILoggerFactory>();
             ILogger logger = loggerFactory?.CreateLogger("Quartz.NET");
@@ -114,7 +117,7 @@ namespace Quartz
                 scheduler.Start().Wait();
             }
 
-            return provider;
+            return app;
         }
     }
 }
