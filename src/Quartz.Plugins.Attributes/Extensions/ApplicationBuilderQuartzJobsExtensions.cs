@@ -81,10 +81,10 @@ namespace Quartz
                 }
             }
 
-#if NETCORE_3_X
-            Microsoft.Extensions.Hosting.IHostApplicationLifetime lifetime = provider.GetService<Microsoft.Extensions.Hosting.IHostApplicationLifetime>();
-#else
+#if NETCORE_2_X
             IApplicationLifetime lifetime = provider.GetService<IApplicationLifetime>();
+#else
+            Microsoft.Extensions.Hosting.IHostApplicationLifetime lifetime = provider.GetService<Microsoft.Extensions.Hosting.IHostApplicationLifetime>();
 #endif
             if (lifetime != null)
             {
