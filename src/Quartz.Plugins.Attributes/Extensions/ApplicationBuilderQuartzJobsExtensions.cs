@@ -81,7 +81,7 @@ namespace Quartz
                 }
             }
 
-#if NETCORE_2_X
+#if NETCOREAPP2_X
             IApplicationLifetime lifetime = provider.GetService<IApplicationLifetime>();
 #else
             Microsoft.Extensions.Hosting.IHostApplicationLifetime lifetime = provider.GetService<Microsoft.Extensions.Hosting.IHostApplicationLifetime>();
